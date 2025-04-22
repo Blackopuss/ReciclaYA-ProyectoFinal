@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
 	// verificar que primero inicie sesion
-
 	const usuarioGuardado = JSON.parse(localStorage.getItem("usuario"));
 
 	if (!usuarioGuardado) {
@@ -12,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	fetch("http://localhost:3000/ranking")
 		.then((response) => response.json())
 		.then((data) => {
-			console.log("Datos recibidos del backend: ", data);
+			//console.log("Datos recibidos del backend: ", data);
 
 			const ranking = data.ranking;
 			const tbody = document.querySelector("#tabla-ranking tbody");
@@ -64,3 +63,8 @@ document.getElementById("cerrar-sesion")?.addEventListener("click", (e) => {
 		window.location.href = "login.html";
 	}, 750); // 1000 = 1 segundo
 });
+
+function toggleMenu() {
+	const menu = document.getElementById("menu");
+	menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+}

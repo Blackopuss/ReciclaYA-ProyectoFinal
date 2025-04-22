@@ -1,12 +1,12 @@
 :root {
 	--Negro: #0d0d0d;
-	--Gris: #1e1e1e;
-	--Texto: #f7e7e7;
+	--Gris: #0e1821;
+	--Azul: #072130;
 	--Cafe: #3b1d29;
 	--Rojo: #501529;
-	--Azul: #072130;
 }
 
+/* estilos generales */
 * {
 	margin: 0;
 	padding: 0;
@@ -14,16 +14,317 @@
 	font-family: "Poppins", sans-serif;
 }
 
-body {
-	background: radial-gradient(
-		ellipse at top left,
-		var(--Negro),
-		var(--Gris),
-		var(--Azul)
-	);
-	color: var(--Texto);
+body,
+html {
+	height: 100%;
+	background-color: var(--Azul);
+	color: #fff;
+}
+
+/* estilos del nav */
+.navbar {
+	background-color: var(--Gris);
+	color: white;
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
-	height: 100vh;
+	padding: 1rem 2rem;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 999;
+}
+
+.navbar .logo {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.menu {
+	display: none;
+	flex-direction: column;
+	background-color: var(--Azul);
+	position: absolute;
+	top: 60px;
+	right: 20px;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.menu a {
+	padding: 0.8rem 1rem;
+	color: white;
+	text-decoration: none;
+	border-bottom: 1px solid var(--Gris);
+}
+
+.menu a:hover {
+	background-color: var(--Cafe);
+}
+
+.menu-icon {
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.menu-icon div {
+	width: 25px;
+	height: 3px;
+	background-color: white;
+}
+
+/* Footer */
+footer {
+	background-color: var(--Gris);
+	color: white;
+	padding: 1.5rem 2rem;
+	text-align: center;
+}
+
+footer a {
+	color: #ecf0f1;
+	margin: 0 10px;
+	text-decoration: none;
+}
+
+footer a:hover {
+	text-decoration: underline;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+	.menu {
+		display: flex;
+		position: static;
+		flex-direction: row;
+		background-color: transparent;
+	}
+
+	.menu-icon {
+		display: none;
+	}
+}
+
+/* Estilo del mensaje de salida */
+#toast {
+	position: fixed;
+	top: 30px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: #3b1d29;
+	color: white;
+	padding: 1rem 2rem;
+	border-radius: 12px;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+	font-family: "Poppins", sans-serif;
+	font-size: 1rem;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.3s ease, top 0.3s ease;
+	z-index: 1000;
+}
+
+#toast.show {
+	opacity: 1;
+	top: 50px;
+}
+
+/* estilos del buscador */
+.admin-container {
+	margin: 120px auto 60px auto;
+	padding: 2rem;
+	max-width: 800px;
+	background-color: var(--Gris);
+	border-radius: 16px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+	min-height: calc(
+		100vh - 180px
+	); /* Ajusta el tamaño para que ocupe el espacio restante */
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.admin-container h1 {
+	text-align: center;
+	margin-bottom: 1.5rem;
+	color: #fff;
+}
+
+#searchInput {
+	width: 100%;
+	padding: 0.8rem;
+	border-radius: 8px;
+	border: none;
+	margin-bottom: 1rem;
+	font-size: 1rem;
+}
+
+#userList {
+	list-style: none;
+	padding: 0;
+}
+
+.user-item {
+	background-color: var(--Azul);
+	padding: 1rem;
+	border-radius: 8px;
+	margin-bottom: 0.5rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: white;
+}
+
+.user-item button {
+	padding: 0.5rem 1rem;
+	background-color: var(--Rojo);
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	color: white;
+}
+
+.user-item button:hover {
+	background-color: var(--Cafe);
+}
+/* Estilos para la tabla de usuarios */
+#userTable {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 1.5rem;
+	overflow-x: auto;
+}
+
+#userTable th,
+#userTable td {
+	padding: 0.8rem;
+	text-align: left;
+	border: 1px solid var(--Azul);
+}
+
+#userTable th {
+	background-color: var(--Cafe);
+}
+
+#userTable tr:nth-child(even) {
+	background-color: var(--Gris);
+}
+
+#userTable tr:hover {
+	background-color: var(--Azul);
+}
+
+#userTable td button {
+	padding: 0.5rem 1rem;
+	background-color: var(--Rojo);
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	color: white;
+}
+
+#userTable td button:hover {
+	background-color: var(--Cafe);
+}
+
+/* Estilos del formulario de edición */
+#editForm {
+	background-color: var(--Azul);
+	padding: 2rem;
+	border-radius: 16px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+	margin-top: 2rem;
+	display: none;
+}
+
+#editForm h2 {
+	color: white;
+	text-align: center;
+	margin-bottom: 1.5rem;
+}
+
+#editForm input {
+	width: 100%;
+	padding: 0.8rem;
+	border-radius: 8px;
+	border: none;
+	margin-bottom: 1rem;
+	font-size: 1rem;
+}
+
+#editForm button {
+	width: 100%;
+	padding: 1rem;
+	background-color: var(--Rojo);
+	border: none;
+	border-radius: 8px;
+	color: white;
+	cursor: pointer;
+	font-size: 1.1rem;
+}
+
+#editForm button:hover {
+	background-color: var(--Cafe);
+}
+
+/* Estilos para el mensaje de éxito */
+#toast-success {
+	position: fixed;
+	top: 30px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: #28a745; /* verde éxito */
+	color: white;
+	padding: 1rem 2rem;
+	border-radius: 12px;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+	font-family: "Poppins", sans-serif;
+	font-size: 1rem;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.3s ease, top 0.3s ease;
+	z-index: 1000;
+}
+
+#toast-success.show {
+	opacity: 1;
+	top: 50px;
+}
+.table-container {
+	width: 100%;
+	overflow-x: auto;
+}
+.table-container::-webkit-scrollbar {
+	height: 6px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+	background-color: var(--Cafe);
+	border-radius: 10px;
+}
+
+/* Estilos para la interfaz responsive */
+@media (max-width: 768px) {
+	.admin-container {
+		padding: 1rem;
+		margin: 120px 10px 60px 10px;
+	}
+
+	#userTable td,
+	#userTable th {
+		font-size: 0.9rem;
+		padding: 0.5rem;
+	}
+
+	#editForm {
+		margin-top: 1.5rem;
+	}
+
+	#editForm input,
+	#editForm button {
+		font-size: 1rem;
+	}
 }

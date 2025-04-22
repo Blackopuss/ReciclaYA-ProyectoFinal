@@ -54,3 +54,8 @@ document.getElementById("cerrar-sesion")?.addEventListener("click", (e) => {
 		window.location.href = "login.html";
 	}, 750); // 1000 = 1 segundo
 });
+
+function toggleMenu() {
+	const menu = document.getElementById("menu");
+	menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+}

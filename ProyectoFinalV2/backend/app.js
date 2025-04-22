@@ -5,6 +5,9 @@ const app = express();
 require("dotenv").config();
 const path = require("path");
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 // Autenticacion
 const puerto = process.env.PORT || 4000;
 const rutaHome = require("./routes/rutaHome");
@@ -18,8 +21,9 @@ app.use("/usuarios", usuarioRoutes);
 const rankingRoutes = require("./routes/rutaRanking");
 app.use(rankingRoutes);
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+// Admin
+const adminRoutes = require("./routes/rutaAdmin");
+app.use(adminRoutes);
 
 app.use(express.static(path.join(__dirname, "../frontend")));
 
