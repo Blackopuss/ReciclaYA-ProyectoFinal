@@ -2,8 +2,8 @@
 node_modules/
 
 # Archivos de entorno
-*.env
-backend/config/
+.env
+db.js
 .env.local
 .env.development.local
 .env.test.local
