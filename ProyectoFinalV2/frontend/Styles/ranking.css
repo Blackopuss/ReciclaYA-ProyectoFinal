@@ -1,0 +1,224 @@
+:root {
+	--Negro: #0d0d0d;
+	--Gris: #0e1821;
+	--Azul: #072130;
+	--Cafe: #3b1d29;
+	--Rojo: #501529;
+}
+
+/* estilos generales */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+
+body,
+html {
+	height: 100%;
+	background-color: var(--Azul);
+	color: #fff;
+}
+
+/* estilos del nav */
+.navbar {
+	background-color: var(--Gris);
+	color: white;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem 2rem;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 999;
+}
+
+.navbar .logo {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+/* Estilos del menu de hamburguesa para cuando se usen desde los dipositivos moviles*/
+.menu {
+	display: none;
+	flex-direction: column;
+	background-color: var(--Azul);
+	position: absolute;
+	top: 60px;
+	right: 20px;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.menu a {
+	padding: 0.8rem 1rem;
+	color: white;
+	text-decoration: none;
+	border-bottom: 1px solid var(--Gris);
+}
+
+.menu a:hover {
+	background-color: var(--Cafe);
+}
+
+.menu-icon {
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.menu-icon div {
+	width: 25px;
+	height: 3px;
+	background-color: white;
+}
+
+/* estilos del hero */
+.hero {
+	/* 90.6 vw con footer y 100 sin footer */
+	height: 90.6vh;
+	background: linear-gradient(
+			to bottom,
+			rgba(13, 13, 13, 0.9),
+			rgba(13, 13, 13, 0.4)
+		),
+		url(../img/BG2.jpg) no-repeat center center / cover;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 70px;
+}
+
+.hero-content {
+	position: relative;
+	z-index: 2;
+	text-align: center;
+	padding: 2rem;
+	border-radius: 12px;
+	color: white;
+}
+
+.hero-content h1 {
+	color: white;
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.hero-content button {
+	padding: 1rem 2rem;
+	background-color: var(--Rojo);
+	color: white;
+	border: none;
+	border-radius: 8px;
+	font-size: 1.2rem;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.hero-content button:hover {
+	background-color: var(--Cafe);
+}
+
+/* estilos del; footer */
+footer {
+	background-color: var(--Gris);
+	color: white;
+	padding: 1.5rem 2rem;
+	text-align: center;
+}
+
+footer a {
+	color: #ecf0f1;
+	margin: 0 10px;
+	text-decoration: none;
+}
+
+footer a:hover {
+	text-decoration: underline;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+	.menu {
+		display: flex;
+		position: static;
+		flex-direction: row;
+		background-color: transparent;
+	}
+
+	.menu-icon {
+		display: none;
+	}
+}
+
+/* RANKING */
+/* Tabla de ranking */
+#tabla-ranking {
+	width: 100%;
+	border-collapse: collapse;
+	background-color: var(--Azul);
+	border-radius: 12px;
+	overflow: hidden;
+	margin-top: 2rem;
+}
+
+#tabla-ranking thead {
+	background-color: var(--Cafe);
+	color: white;
+}
+
+#tabla-ranking th,
+#tabla-ranking td {
+	padding: 1rem;
+	text-align: center;
+	border-bottom: 1px solid var(--Rojo);
+	font-size: 1rem;
+}
+
+#tabla-ranking tbody tr:nth-child(even) {
+	background-color: var(--Gris);
+}
+
+#tabla-ranking tbody tr:nth-child(odd) {
+	background-color: var(--Azul);
+}
+
+#tabla-ranking tbody tr:hover {
+	background-color: var(--Rojo);
+	color: white;
+	cursor: default;
+}
+
+.main-content {
+	padding-top: 100px;
+	padding-bottom: 60px;
+	width: 90%;
+	max-width: 1000px;
+	margin: auto;
+}
+/* Estilo del mensaje de salida */
+#toast {
+	position: fixed;
+	top: 30px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: #3b1d29;
+	color: white;
+	padding: 1rem 2rem;
+	border-radius: 12px;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+	font-family: "Poppins", sans-serif;
+	font-size: 1rem;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.3s ease, top 0.3s ease;
+	z-index: 1000;
+}
+
+#toast.show {
+	opacity: 1;
+	top: 50px;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>ReciclaCUT</title>
+		<link rel="stylesheet" href="Styles/styles.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<!-- nav -->
+		<nav class="navbar">
+			<div class="logo">ReciclaYA</div>
+			<div class="menu-icon" onclick="toggleMenu()">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<div class="menu" id="menu">
+				<a href="ranking.html">Ranking</a>
+				<a href="perfil.html">Perfil</a>
+				<a href="login.html">Log In</a>
+			</div>
+		</nav>
+
+		<!-- hero -->
+		<section class="hero">
+			<div class="hero-content">
+				<h1>¡Recicla y gana puntos!</h1>
+				<button onclick="window.location.href='login.html'">Empezar</button>
+			</div>
+		</section>
+
+		<!-- Quizas quitar footer? para que quede una pesta de inicio sencilla y sin juego de la barra lateral?
+		o bajar el view hight a 90 para que quede mas peque;a la imagen y quepa el footer 
+		-->
+
+		<!-- footer -->
+		<footer>
+			<p>
+				<a href="#">Sobre nosotros</a> | <a href="#">Facebook</a> |
+				<a href="#">Instagram</a> |
+				<a href="#">Términos y condiciones</a>
+			</p>
+			<p>&copy; 2025 ReciclaYA - Todos los derechos reservados</p>
+		</footer>
+
+		<script src="../Scripts/script.js"></script>
+	</body>
+</html>

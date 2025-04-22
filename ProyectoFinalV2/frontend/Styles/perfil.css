@@ -1,0 +1,274 @@
+:root {
+	--Negro: #0d0d0d;
+	--Gris: #0e1821;
+	--Azul: #072130;
+	--Cafe: #3b1d29;
+	--Rojo: #501529;
+}
+
+/* estilos generales */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+
+body,
+html {
+	height: 100%;
+	background-color: var(--Azul);
+	color: #fff;
+}
+
+/* estilos del nav */
+.navbar {
+	background-color: var(--Gris);
+	color: white;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem 2rem;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 999;
+}
+
+.navbar .logo {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.menu {
+	display: none;
+	flex-direction: column;
+	background-color: var(--Azul);
+	position: absolute;
+	top: 60px;
+	right: 20px;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.menu a {
+	padding: 0.8rem 1rem;
+	color: white;
+	text-decoration: none;
+	border-bottom: 1px solid var(--Gris);
+}
+
+.menu a:hover {
+	background-color: var(--Cafe);
+}
+
+.menu-icon {
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.menu-icon div {
+	width: 25px;
+	height: 3px;
+	background-color: white;
+}
+
+/* Contenedor principal */
+.perfil-container {
+	max-width: 800px;
+	margin: 120px auto 60px auto;
+	padding: 2rem 1rem;
+	background-color: var(--Gris);
+	border-radius: 16px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+	width: 90%;
+}
+
+.perfil-container h1 {
+	text-align: center;
+	margin-bottom: 2rem;
+	color: #ffffff;
+	font-size: 2.5rem;
+	border-bottom: 2px solid var(--Rojo);
+	padding-bottom: 0.5rem;
+}
+
+/* Informacion del usuario */
+.perfil-info {
+	background-color: var(--Azul);
+	border-radius: 8px;
+	padding: 1.5rem;
+	margin-bottom: 2rem;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.perfil-info p {
+	font-size: 1.1rem;
+	margin-bottom: 1rem;
+	color: #ecf0f1;
+}
+
+.perfil-info strong {
+	color: white;
+	font-weight: 600;
+}
+
+/* Seccion de puntos */
+.puntos-section {
+	background-color: var(--Azul);
+	padding: 1.5rem;
+	border-radius: 8px;
+	margin-bottom: 2rem;
+	text-align: center;
+}
+
+.puntos-section h2 {
+	font-size: 1.8rem;
+	margin-bottom: 1rem;
+	color: white;
+}
+
+#puntos-usuario {
+	color: #f1c40f;
+	font-size: 2.2rem;
+	font-weight: bold;
+}
+
+#canjear-btn {
+	padding: 0.8rem 1.5rem;
+	background-color: var(--Rojo);
+	color: white;
+	border: none;
+	border-radius: 6px;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	margin-top: 1rem;
+}
+
+#canjear-btn:hover {
+	background-color: var(--Cafe);
+	transform: translateY(-2px);
+}
+
+/* Seccion de registro de reciclaje */
+.registro-reciclaje {
+	background-color: var(--Azul);
+	padding: 1.5rem;
+	border-radius: 8px;
+	text-align: center;
+}
+
+.registro-reciclaje h2 {
+	font-size: 1.8rem;
+	margin-bottom: 1rem;
+	color: white;
+}
+
+/* Botones */
+#cantidad-plastico {
+	padding: 0.8rem;
+	width: 200px;
+	border: none;
+	border-radius: 6px;
+	margin-right: 1rem;
+	font-size: 1rem;
+	background-color: var(--Negro);
+	color: white;
+}
+
+#registrar-btn {
+	padding: 0.8rem 1.5rem;
+	background-color: var(--Rojo);
+	color: white;
+	border: none;
+	border-radius: 6px;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+#registrar-btn:hover {
+	background-color: var(--Cafe);
+	transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+	.perfil-container {
+		margin: 70px 1rem 2rem;
+		padding: 1.5rem;
+	}
+
+	.perfil-container h1 {
+		font-size: 2rem;
+	}
+
+	#cantidad-plastico {
+		width: 100%;
+		margin-right: 0;
+		margin-bottom: 1rem;
+	}
+
+	#registrar-btn {
+		width: 100%;
+	}
+}
+
+/* Footer */
+footer {
+	background-color: var(--Gris);
+	color: white;
+	padding: 1.5rem 2rem;
+	text-align: center;
+}
+
+footer a {
+	color: #ecf0f1;
+	margin: 0 10px;
+	text-decoration: none;
+}
+
+footer a:hover {
+	text-decoration: underline;
+}
+
+/* Mostrar menu en pantallas grandes */
+@media (min-width: 768px) {
+	.menu {
+		display: flex;
+		position: static;
+		flex-direction: row;
+		background-color: transparent;
+	}
+
+	.menu-icon {
+		display: none;
+	}
+}
+
+/* Estilo del mensaje de salida */
+#toast {
+	position: fixed;
+	top: 30px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: #3b1d29;
+	color: white;
+	padding: 1rem 2rem;
+	border-radius: 12px;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+	font-family: "Poppins", sans-serif;
+	font-size: 1rem;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.3s ease, top 0.3s ease;
+	z-index: 1000;
+}
+
+#toast.show {
+	opacity: 1;
+	top: 50px;
+}

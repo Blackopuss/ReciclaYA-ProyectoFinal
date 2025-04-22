@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Login / Registro</title>
+		<link rel="stylesheet" href="/Styles/login.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<div class="form-container" id="form-container">
+			<form class="form" id="login-form">
+				<h2>Iniciar Sesión</h2>
+				<input
+					type="email"
+					name="correo"
+					placeholder="Correo electrónico"
+					required
+				/>
+				<input
+					type="password"
+					name="contrasena"
+					placeholder="Contraseña"
+					required
+				/>
+				<button type="submit">Iniciar Sesión</button>
+				<p class="switch-form">
+					¿No tienes cuenta? <span id="to-register">Regístrate</span>
+				</p>
+			</form>
+
+			<form class="form hidden" id="register-form">
+				<h2>Registro</h2>
+				<input type="text" name="nombre" placeholder="Nombre" required />
+
+				<input type="text" name="apellido" placeholder="Apellido" required />
+
+				<!-- lista de carreras del cut-->
+				<select name="carrera" id="carrera" required>
+					<option value="">Selecciona una carrera</option>
+					<option value="Médico Cirujano y Partero">
+						Médico Cirujano y Partero
+					</option>
+					<option value="Nutrición">Nutrición</option>
+					<option value="Salud Pública">Salud Pública</option>
+					<option value="Gerontología">Gerontología</option>
+					<option value="Ciencias Forenses">Ciencias Forenses</option>
+					<option value="Derecho">Derecho</option>
+					<option value="Diseño de Artesanías">Diseño de Artesanías</option>
+					<option value="Estudios Liberales">Estudios Liberales</option>
+					<option value="Historia del Arte">Historia del Arte</option>
+					<option value="Administración de Negocios">
+						Administración de Negocios
+					</option>
+					<option value="Contaduría Pública">Contaduría Pública</option>
+					<option value="Ingeniería en Energía">Ingeniería en Energía</option>
+					<option value="Ingeniería en Nanotecnología">
+						Ingeniería en Nanotecnología
+					</option>
+					<option value="Ingeniería en Ciencias Computacionales">
+						Ingeniería en Ciencias Computacionales
+					</option>
+				</select>
+
+				<!--  -->
+
+				<input
+					type="email"
+					name="correo"
+					placeholder="Correo electronico"
+					required
+				/>
+				<input
+					type="password"
+					name="contrasena"
+					placeholder="Contraseña"
+					required
+				/>
+				<button type="submit">Registrarse</button>
+				<p class="switch-form">
+					¿Ya tienes cuenta? <span id="to-login">Iniciar sesión</span>
+				</p>
+			</form>
+		</div>
+
+		<script src="./Scripts/login.js"></script>
+	</body>
+</html>
