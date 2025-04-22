@@ -43,6 +43,35 @@ document.addEventListener("DOMContentLoaded", () => {
 						editForm.style.display = "block";
 					});
 				});
+
+				// Manejar clic en botón de eliminación
+				const deleteButtons = document.querySelectorAll(".deleteBtn");
+				deleteButtons.forEach((button) => {
+					button.addEventListener("click", (e) => {
+						const usuarioId = e.target.getAttribute("data-id");
+						const confirmacion = confirm(
+							"¿Estás seguro de que deseas eliminar este usuario?",
+						);
+						if (confirmacion) {
+							fetch(`http://localhost:3000/eliminar-usuario/${usuarioId}`, {
+								method: "DELETE",
+							})
+								.then((res) => res.json())
+								.then((data) => {
+									if (data.success) {
+										mostrarToast("Usuario eliminado con éxito.");
+										searchInput.dispatchEvent(new Event("input"));
+									} else {
+										alert("Ocurrió un error al eliminar el usuario.");
+									}
+								})
+								.catch((err) => {
+									console.error("Error al eliminar el usuario:", err);
+									alert("Error al eliminar el usuario.");
+								});
+						}
+					});
+				});
 			})
 			.catch((error) => console.error("Error al buscar usuarios:", error));
 	});

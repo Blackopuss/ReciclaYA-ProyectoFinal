@@ -54,6 +54,14 @@ const Usuario = {
 			},
 		);
 	},
+	// Eliminar usuario
+	eliminarUsuario: (id, callback) => {
+		const query = `DELETE FROM usuarios WHERE id = ?`;
+		db.query(query, [id], (err, result) => {
+			if (err) return callback(err);
+			callback(null, result);
+		});
+	},
 };
 
 module.exports = Usuario;

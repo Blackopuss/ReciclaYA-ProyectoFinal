@@ -8,4 +8,7 @@ router.get("/buscar-usuario", adminController.buscarUsuario);
 // Editar usuario
 router.post("/editar-usuario", adminController.editarUsuario);
 
+// Eliminar usuario
+router.delete("/eliminar-usuario/:id", adminController.eliminarUsuario);
+
 module.exports = router;

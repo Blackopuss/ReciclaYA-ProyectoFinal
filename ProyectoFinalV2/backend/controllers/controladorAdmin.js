@@ -33,3 +33,18 @@ exports.editarUsuario = (req, res) => {
 		},
 	);
 };
+
+// Eliminar usuario
+exports.eliminarUsuario = (req, res) => {
+	const { id } = req.params;
+
+	Usuario.eliminarUsuario(id, (err, resultado) => {
+		if (err) {
+			console.error("Error al eliminar usuario:", err);
+			return res
+				.status(500)
+				.json({ success: false, message: "Error al eliminar el usuario" });
+		}
+		res.json({ success: true, message: "Usuario eliminado correctamente" });
+	});
+};
