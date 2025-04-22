@@ -33,7 +33,20 @@
 		<section class="hero">
 			<div class="hero-content">
 				<h1>¡Recicla y gana puntos!</h1>
-				<button onclick="window.location.href='login.html'">Empezar</button>
+				<button id="btn-comenzar" onclick="window.location.href='login.html'">
+					Empezar
+				</button>
+				<button id="btn-instrucciones" class="btn">¿Cómo participar?</button>
+
+				<div id="panel-instrucciones" class="hidden-panel">
+					<h3>Instrucciones</h3>
+					<ol>
+						<li>Revisa los cursos disponibles.</li>
+						<li>Selecciona el curso que te interese.</li>
+						<li>Haz clic en “Inscribirme”.</li>
+						<li>Sigue los pasos que aparecen en pantalla.</li>
+					</ol>
+				</div>
 			</div>
 		</section>
 

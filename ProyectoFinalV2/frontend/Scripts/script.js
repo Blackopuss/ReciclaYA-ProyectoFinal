@@ -15,6 +15,19 @@ document.addEventListener("DOMContentLoaded", () => {
 			adminLink.style.display = "block";
 		}
 	}
+
+	if (usuario) {
+		const btnComenzar = document.getElementById("btn-comenzar");
+		btnComenzar.style.display = "none";
+		const btnInstrucciones = document.getElementById("btn-instrucciones");
+		const panel = document.getElementById("panel-instrucciones");
+
+		if (btnInstrucciones && panel) {
+			btnInstrucciones.addEventListener("click", () => {
+				panel.classList.toggle("visible");
+			});
+		}
+	}
 });
 
 function toggleMenu() {
