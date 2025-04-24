@@ -130,13 +130,13 @@ html {
 	color: white;
 }
 
-#puntos-usuario {
+#codigo {
 	color: #f1c40f;
 	font-size: 2.2rem;
 	font-weight: bold;
 }
 
-#canjear-btn {
+#generar-btn {
 	padding: 0.8rem 1.5rem;
 	background-color: var(--Rojo);
 	color: white;
@@ -148,7 +148,7 @@ html {
 	margin-top: 1rem;
 }
 
-#canjear-btn:hover {
+#generar-btn:hover {
 	background-color: var(--Cafe);
 	transform: translateY(-2px);
 }
@@ -189,10 +189,31 @@ html {
 	cursor: pointer;
 	transition: all 0.3s ease;
 }
+#seccion-admin #cantidad-plastico {
+	padding: 0.8rem;
+	width: 220px;
+	border: none;
+	border-radius: 6px;
+	margin-right: 1rem;
+	font-size: 1rem;
+	background-color: var(--Negro);
+	color: white;
+}
 
 #registrar-btn:hover {
 	background-color: var(--Cafe);
 	transform: translateY(-2px);
+}
+
+#seccion-usuario #canjear-btn {
+	padding: 0.8rem 1.5rem;
+	background-color: var(--Rojo);
+	color: white;
+	border: none;
+	border-radius: 6px;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: all 0.3s ease;
 }
 
 /* Responsive */
@@ -271,4 +292,8 @@ footer a:hover {
 #toast.show {
 	opacity: 1;
 	top: 50px;
+}
+
+.hidden-perfil {
+	display: none;
 }

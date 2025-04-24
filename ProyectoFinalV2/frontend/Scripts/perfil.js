@@ -18,13 +18,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
 			if (data.success) {
 				const usuario = data.usuario;
-				document.getElementById("perfil-info").innerHTML = `
-            <p><strong>Nombre:</strong> ${usuario.nombre} ${usuario.apellido}</p>
-            <p><strong>Carrera:</strong> ${usuario.carrera}</p>
-            <p><strong>Correo:</strong> ${usuario.correo}</p>
-          `;
-				document.getElementById("puntos-usuario").textContent =
-					usuario.puntos || "0";
+
+				// Mostrar contenido según el rol
+				const seccionAdmin = document.getElementById("seccion-admin");
+				const seccionUsuario = document.getElementById("seccion-usuario");
+
+				const rol = usuario.rol || usuarioGuardado.rol;
+
+				if (rol === "admin") {
+					seccionAdmin.classList.remove("hidden-perfil");
+					document.getElementById("perfil-info-admin").innerHTML = `
+						<p><strong>Nombre:</strong> ${usuario.nombre} ${usuario.apellido}</p>
+						<p><strong>Carrera:</strong> ${usuario.carrera}</p>
+						<p><strong>Correo:</strong> ${usuario.correo}</p>
+					`;
+					document.getElementById("codigo").textContent =
+						usuario.codigo || "N/A";
+				} else {
+					seccionUsuario.classList.remove("hidden-perfil");
+					document.getElementById("perfil-info-usuario").innerHTML = `
+						<p><strong>Nombre:</strong> ${usuario.nombre} ${usuario.apellido}</p>
+						<p><strong>Carrera:</strong> ${usuario.carrera}</p>
+						<p><strong>Correo:</strong> ${usuario.correo}</p>
+					`;
+					document.getElementById("puntos-usuario").textContent =
+						usuario.puntos || "0";
+				}
 			} else {
 				alert(data.message);
 			}
