@@ -22,6 +22,10 @@ loginSubmit.addEventListener("submit", (e) => {
 				// Guardar los datos del usuario en localStorage
 				localStorage.setItem("usuario", JSON.stringify(data.usuario));
 
+				// Verifica si el usuario es admin
+				if (data.usuario.rol === "admin") {
+					localStorage.setItem("admin_id", data.usuario.id);
+				}
 				// Redirigir a home.html
 				window.location.href = "home";
 			} else {

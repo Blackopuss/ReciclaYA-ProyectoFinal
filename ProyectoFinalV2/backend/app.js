@@ -25,6 +25,10 @@ app.use(rankingRoutes);
 const adminRoutes = require("./routes/rutaAdmin");
 app.use(adminRoutes);
 
+// Tickets
+const ticketsRoutes = require("./routes/rutaTickets");
+app.use("/", ticketsRoutes);
+
 app.use(express.static(path.join(__dirname, "../frontend")));
 
 // Ruta para el home

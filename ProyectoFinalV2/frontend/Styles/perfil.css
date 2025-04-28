@@ -168,7 +168,8 @@ html {
 }
 
 /* Botones */
-#cantidad-plastico {
+#cantidad-plastico,
+#codigo-canjear {
 	padding: 0.8rem;
 	width: 200px;
 	border: none;

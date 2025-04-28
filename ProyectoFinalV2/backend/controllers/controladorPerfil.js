@@ -22,6 +22,3 @@ exports.getUsuarioPorId = (req, res) => {
 		return res.json({ success: true, usuario });
 	});
 };
-
-// // test -- no sirve crashea XD, ir al perfil.js
-// localStorage.setItem("usuario", JSON.stringify(data.usuario));
