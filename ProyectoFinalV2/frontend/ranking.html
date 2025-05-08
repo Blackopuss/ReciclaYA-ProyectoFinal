@@ -28,19 +28,28 @@
 		</nav>
 
 		<!-- CONTENIDO DEL RANKING -->
-		<div class="main-content">
-			<table id="tabla-ranking">
-				<thead>
-					<tr>
-						<th>#</th>
-						<th>Nombre</th>
-						<th>Carrera</th>
-						<th>Puntos</th>
-						<th>Nivel</th>
-					</tr>
-				</thead>
-				<tbody></tbody>
-			</table>
+		<div class="main-wrapper">
+			<div class="main-content">
+				<table id="tabla-ranking">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Nombre</th>
+							<th>Carrera</th>
+							<th>Puntos</th>
+							<th>Nivel</th>
+						</tr>
+					</thead>
+					<tbody></tbody>
+				</table>
+			</div>
+
+			<!-- Controles de la paginacion -->
+			<div id="paginacion" class="paginacion">
+				<button id="anterior" disabled>&laquo; Anterior</button>
+				<span id="info-pagina">Página 1</span>
+				<button id="siguiente" disabled>Siguiente &raquo;</button>
+			</div>
 		</div>
 
 		<!-- FOOTER -->

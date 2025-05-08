@@ -19,6 +19,8 @@ html {
 	height: 100%;
 	background-color: var(--Azul);
 	color: #fff;
+	display: flex;
+	flex-direction: column;
 }
 
 /* estilos del nav */
@@ -40,7 +42,7 @@ html {
 	font-weight: bold;
 }
 
-/* Estilos del menu de hamburguesa para cuando se usen desde los dipositivos moviles*/
+/* Estilos del menu de hamburguesa para cuando se usen desde los dispositivos móviles */
 .menu {
 	display: none;
 	flex-direction: column;
@@ -76,7 +78,7 @@ html {
 	background-color: white;
 }
 
-/* estilos del hero */
+/* Estilos del hero */
 .hero {
 	/* 90.6 vw con footer y 100 sin footer */
 	height: 90.6vh;
@@ -122,12 +124,13 @@ html {
 	background-color: var(--Cafe);
 }
 
-/* estilos del; footer */
+/* estilos del footer */
 footer {
 	background-color: var(--Gris);
 	color: white;
 	padding: 1.5rem 2rem;
 	text-align: center;
+	margin-top: auto; /* Esto mantiene el footer abajo */
 }
 
 footer a {
@@ -192,13 +195,21 @@ footer a:hover {
 	cursor: default;
 }
 
+.main-wrapper {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
 .main-content {
-	padding-top: 100px;
-	padding-bottom: 60px;
 	width: 90%;
 	max-width: 1000px;
 	margin: auto;
+	padding-top: 100px;
+	padding-bottom: 60px;
+	flex: 1;
 }
+
 /* Estilo del mensaje de salida */
 #toast {
 	position: fixed;
@@ -221,4 +232,33 @@ footer a:hover {
 #toast.show {
 	opacity: 1;
 	top: 50px;
+}
+
+/* Paginación */
+.paginacion {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 1rem;
+	gap: 1rem;
+}
+
+.paginacion button {
+	padding: 0.5rem 1rem;
+	background-color: var(--Rojo);
+	color: white;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.paginacion button:disabled {
+	background-color: #ccc;
+	cursor: not-allowed;
+}
+
+.paginacion span {
+	font-size: 1rem;
+	color: white;
 }

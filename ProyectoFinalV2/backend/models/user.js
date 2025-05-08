@@ -2,8 +2,10 @@
 const db = require("../config/db");
 
 const Usuario = {
+	// Prueba de hash de contrasena
 	buscarPorCredenciales: (correo, contrasena, callback) => {
-		const sql = "SELECT * FROM usuarios WHERE correo = ? AND contrasena = ?";
+		const sql =
+			"SELECT * FROM usuarios WHERE correo = ? AND contrasena = SHA2(?, 256)"; // Hashear en 256 y hacer la consulta de la contrasena
 		db.query(sql, [correo, contrasena], callback);
 	},
 
