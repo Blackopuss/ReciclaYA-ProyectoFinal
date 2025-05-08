@@ -40,7 +40,8 @@ document.addEventListener("DOMContentLoaded", () => {
 						document.getElementById("editCarrera").value = usuario.carrera;
 						document.getElementById("editPuntos").value = usuario.puntos;
 						document.getElementById("editNivel").value = usuario.nivel_actual;
-						editForm.style.display = "block";
+						// editForm.style.display = "block";
+						document.getElementById("editModal").classList.remove("hidden");
 					});
 				});
 
@@ -105,7 +106,8 @@ document.addEventListener("DOMContentLoaded", () => {
 			.then((data) => {
 				if (data.success) {
 					mostrarToast("Usuario actualizado con éxito.");
-					editForm.style.display = "none";
+					// editForm.style.display = "none";
+					document.getElementById("editModal").classList.add("hidden");
 					searchInput.dispatchEvent(new Event("input"));
 				}
 			})
@@ -149,3 +151,8 @@ function mostrarToast(mensaje) {
 		toast.classList.add("hidden");
 	}, 750);
 }
+
+// Cerrar el modal
+document.getElementById("closeModalBtn").addEventListener("click", () => {
+	document.getElementById("editModal").classList.add("hidden");
+});

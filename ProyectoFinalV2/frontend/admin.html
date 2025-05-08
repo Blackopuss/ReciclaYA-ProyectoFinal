@@ -49,28 +49,41 @@
 				</table>
 			</div>
 
-			<!-- Formulario de edición -->
-			<div id="editForm">
-				<h2>Editar Usuario</h2>
-				<form id="editUserForm">
-					<input type="hidden" id="userId" />
-					<input type="text" id="editNombre" placeholder="Nombre" required />
-					<input
-						type="text"
-						id="editApellido"
-						placeholder="Apellido"
-						required
-					/>
-					<input type="text" id="editCarrera" placeholder="Carrera" required />
-					<input type="number" id="editPuntos" placeholder="Puntos" required />
-					<input
-						type="number"
-						id="editNivel"
-						placeholder="Nivel Actual"
-						required
-					/>
-					<button type="submit">Guardar Cambios</button>
-				</form>
+			<!-- Modal para editar usuario -->
+			<div id="editModal" class="modal hidden">
+				<div class="modal-content">
+					<span class="close-btn" id="closeModalBtn">&times;</span>
+					<h2>Editar Usuario</h2>
+					<form id="editUserForm">
+						<input type="hidden" id="userId" />
+						<input type="text" id="editNombre" placeholder="Nombre" required />
+						<input
+							type="text"
+							id="editApellido"
+							placeholder="Apellido"
+							required
+						/>
+						<input
+							type="text"
+							id="editCarrera"
+							placeholder="Carrera"
+							required
+						/>
+						<input
+							type="number"
+							id="editPuntos"
+							placeholder="Puntos"
+							required
+						/>
+						<input
+							type="number"
+							id="editNivel"
+							placeholder="Nivel Actual"
+							required
+						/>
+						<button type="submit">Guardar Cambios</button>
+					</form>
+				</div>
 			</div>
 		</div>
 
