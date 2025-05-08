@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	// verificar que primero inicie sesion
 	const usuarioGuardado = JSON.parse(localStorage.getItem("usuario"));
 	console.log("usuarioGuardado:", usuarioGuardado);
+
 	if (!usuarioGuardado) {
 		alert("No has iniciado sesión.");
 		window.location.href = "login.html";
@@ -61,9 +62,17 @@ document.addEventListener("DOMContentLoaded", () => {
 			const cantidad = parseInt(
 				document.getElementById("cantidad-plastico").value,
 			);
+			const toast = document.getElementById("toast-codigo");
 
 			if (!cantidad || cantidad <= 0) {
-				alert("Ingresa una cantidad válida de botellas");
+				toast.textContent = "⚠️ Ingresa una cantidad válida de botellas.";
+				toast.classList.add("show");
+				toast.classList.remove("hidden");
+
+				setTimeout(() => {
+					toast.classList.remove("show");
+					toast.classList.add("hidden");
+				}, 2000);
 				return;
 			}
 
@@ -81,8 +90,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
 				const data = await res.json();
 				if (data.success) {
-					alert(`Código generado: ${data.ticket.codigo}`);
+					const codigoGenerado = data.ticket.codigo;
+					const puntos = data.ticket.puntos;
+
+					document.getElementById("codigo").textContent = codigoGenerado;
 					document.getElementById("cantidad-plastico").value = "";
+
+					// Mostrar toast
+					const toast = document.getElementById("toast-codigo");
+					toast.textContent = `Código generado: ${codigoGenerado} (${puntos} puntos)`;
+					toast.classList.add("show");
+					toast.classList.remove("hidden");
+
+					setTimeout(() => {
+						toast.classList.remove("show");
+						toast.classList.add("hidden");
+					}, 1500);
 				} else {
 					alert("Error: " + data.message);
 				}
@@ -97,16 +120,19 @@ document.addEventListener("DOMContentLoaded", () => {
 	if (canjearBtn) {
 		canjearBtn.addEventListener("click", async () => {
 			const codigo = document.getElementById("codigo-canjear").value.trim();
-			console.log("Código desde el input:", codigo);
+			const toast = document.getElementById("toast-codigo");
 			const usuarioId = JSON.parse(localStorage.getItem("usuario")).id;
 
 			if (!codigo || !usuarioId) {
-				alert("Faltan datos");
-				console.log("Código:", codigo);
-				console.log("Usuario ID:", usuarioId);
+				toast.textContent = "❌ Faltan datos para canjear el código.";
+				toast.classList.add("show");
+				toast.classList.remove("hidden");
+				setTimeout(() => {
+					toast.classList.remove("show");
+					toast.classList.add("hidden");
+				}, 3000);
 				return;
 			}
-
 			try {
 				const res = await fetch("http://localhost:3000/tickets/canjear", {
 					method: "POST",
@@ -115,19 +141,31 @@ document.addEventListener("DOMContentLoaded", () => {
 				});
 
 				const data = await res.json();
+
 				if (data.success) {
-					alert(`¡Código canjeado! Ganaste ${data.puntosGanados} puntos`);
-					// document.getElementById("cantidad-plastico").value = "";
+					toast.textContent = `✅ ¡Código canjeado! Ganaste ${data.puntosGanados} puntos.`;
+					toast.classList.add("show");
+					toast.classList.remove("hidden");
+
 					document.getElementById("puntos-usuario").textContent =
 						parseInt(document.getElementById("puntos-usuario").textContent) +
 						data.puntosGanados;
 				} else {
-					alert("Error: " + data.message);
+					toast.textContent = `⚠️ ${data.message}`;
+					toast.classList.add("show");
+					toast.classList.remove("hidden");
 				}
 			} catch (error) {
 				console.error("Error:", error);
-				alert("Ocurrió un error al canjear el código");
+				toast.textContent = "🚫 Ocurrió un error al canjear el código.";
+				toast.classList.add("show");
+				toast.classList.remove("hidden");
 			}
+
+			setTimeout(() => {
+				toast.classList.remove("show");
+				toast.classList.add("hidden");
+			}, 2000);
 		});
 	}
 });

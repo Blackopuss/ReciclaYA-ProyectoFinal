@@ -1,5 +1,3 @@
-// alert("hola");
-
 document.addEventListener("DOMContentLoaded", () => {
 	const usuario = JSON.parse(localStorage.getItem("usuario"));
 

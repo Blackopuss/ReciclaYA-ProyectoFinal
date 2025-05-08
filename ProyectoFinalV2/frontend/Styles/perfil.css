@@ -298,3 +298,31 @@ footer a:hover {
 .hidden-perfil {
 	display: none;
 }
+
+/* Estilo de alerta del codigo */
+#toast-codigo {
+	position: fixed;
+	top: 30px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: var(--Rojo);
+	color: white;
+	padding: 1rem 2rem;
+	border-radius: 12px;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+	font-family: "Poppins", sans-serif;
+	font-size: 1rem;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.3s ease, top 0.3s ease;
+	z-index: 1000;
+}
+
+#toast-codigo.show {
+	opacity: 1;
+	top: 50px;
+}
+
+.hidden {
+	display: none;
+}
