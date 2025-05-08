@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 	const searchInput = document.getElementById("searchInput");
 	const userTableBody = document.querySelector("#userTable tbody");
-	const editForm = document.getElementById("editForm");
+	// const editForm = document.getElementById("editForm");
 	const editUserForm = document.getElementById("editUserForm");
 
 	// Buscar usuarios
@@ -22,8 +22,10 @@ document.addEventListener("DOMContentLoaded", () => {
               <td>${usuario.puntos}</td>
               <td>${usuario.nivel_actual}</td>
               <td>
-			  <button class="editBtn" data-id="${usuario.id}">Editar</button>
-			  <button class="deleteBtn" data-id="${usuario.id}">Eliminar</button>
+			  	<div class="action-buttons">
+    				<button class="editBtn" data-id="${usuario.id}">Editar</button>
+    				<button class="deleteBtn" data-id="${usuario.id}">Eliminar</button>
+  				</div>
 			  </td>`;
 					userTableBody.appendChild(row);
 				});
