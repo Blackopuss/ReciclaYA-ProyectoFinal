@@ -170,26 +170,42 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 });
 
-//Cerrar la sesion
+// Cerrar sesion - Admin
+document
+	.getElementById("cerrar-sesion-admin")
+	?.addEventListener("click", (e) => {
+		e.preventDefault();
+		console.log("Botón de cerrar sesión clickeado (admin)");
+		localStorage.removeItem("usuario");
+		localStorage.removeItem("admin_id");
+		const toast = document.getElementById("toast");
+		toast.textContent = "Sesión cerrada con éxito.";
+		toast.classList.add("show");
+		toast.classList.remove("hidden");
+		setTimeout(() => {
+			toast.classList.remove("show");
+			toast.classList.add("hidden");
+			window.location.href = "login.html";
+		}, 2000);
+	});
 
-document.getElementById("cerrar-sesion")?.addEventListener("click", (e) => {
-	e.preventDefault();
-	console.log("Botón de cerrar sesión clickeado (usuario)");
-	// Eliminar usuario del localStorage
-	localStorage.removeItem("usuario");
-
-	// Mostrar toast
-	const toast = document.getElementById("toast");
-	toast.classList.add("show");
-	toast.classList.remove("hidden");
-
-	// Ocultar el toast y redirigir
-	setTimeout(() => {
-		toast.classList.remove("show");
-		toast.classList.add("hidden");
-		window.location.href = "login.html";
-	}, 750); // 1000 = 1 segundo
-});
+// Cerrar sesion - Usuario
+document
+	.getElementById("cerrar-sesion-usuario")
+	?.addEventListener("click", (e) => {
+		e.preventDefault();
+		console.log("Botón de cerrar sesión clickeado (usuario)");
+		localStorage.removeItem("usuario");
+		const toast = document.getElementById("toast");
+		toast.textContent = "Sesión cerrada con éxito.";
+		toast.classList.add("show");
+		toast.classList.remove("hidden");
+		setTimeout(() => {
+			toast.classList.remove("show");
+			toast.classList.add("hidden");
+			window.location.href = "login.html";
+		}, 2000);
+	});
 
 function toggleMenu() {
 	const menu = document.getElementById("menu");
